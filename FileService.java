@@ -12,9 +12,13 @@ public class FileService {
     }
 
     public String read(Path filePath) throws IOException {
-
-        String src = new String(Files.readAllBytes(filePath));
-        return src;
+        if (!isFileExists(filePath)) {
+            System.out.println("File does not exists");
+        } else {
+           String src = new String(Files.readAllBytes(filePath));
+            return src;
+        }
+        return "";
     }
 
     public void writeEncryptedFile(String filePath, String text) throws IOException {
