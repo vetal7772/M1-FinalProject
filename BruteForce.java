@@ -13,7 +13,7 @@ public class BruteForce {
         int key = 0;
         String result = "";
         char[] textToChar = content.toCharArray();
-        for (key = 1; key < 200; key++) {
+        for (key = 1; key < 127; key++) {
 
             StringBuilder builder = new StringBuilder();
 
@@ -37,8 +37,8 @@ public class BruteForce {
                 coincidence++;
             }
             if (coincidence > 1) {
-                System.out.println("Key is :" + key);
-                System.out.println("coincidence :" + coincidence);
+                System.out.println("\nKey is : " + key);
+                System.out.println("coincidence : " + coincidence);
                 return result;
             }
         }
