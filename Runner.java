@@ -1,7 +1,6 @@
 package module1.finalProjectLE;
 
 
-
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -13,9 +12,12 @@ public class Runner {
         FileService fileService = new FileService();
         CaesarCipher cipher = new CaesarCipher();
         BruteForce bruteForce = new BruteForce(cipher);
-        //     Command command = getCommand(args);
+        Console console = new Console();
 
-        if (args.length > 0 && args.length <= 3) {
+        if (args.length == 0) {
+            console.getArguments(args);
+
+        } else if (args.length > 0 && args.length <= 3) {
             switch (args[0]) {
                 case "ENCRYPT" ->
                         fileService.writeEncryptedFile(args[1], cipher.encryptFile(fileService.read(Path.of(args[1])), args[2]));
